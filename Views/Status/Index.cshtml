@@ -1,0 +1,64 @@
+﻿@model IEnumerable<TestI.Models.Status>
+
+<div class="container p-3">
+    <div class="row pt-4">
+        <div class="col-6">
+            <h2 class="text-primary">Status List</h2>
+        </div>
+        @if (User.IsInRole("admin") || User.IsInRole("moderator"))
+        {
+            <div class="col-6 text-right">
+                <a asp-controller="Status" asp-action="Create" class="btn btn-primary">Create Status</a>
+            </div>
+        }
+    </div>
+    <br />
+
+    @if (Model.Count() > 0)
+    {
+        <div class=" container overflow-hidden">
+            <div class="row">
+                @foreach (var obj in Model)
+                {
+                    <div class="col-6">
+
+                        <div class="card p-3  my-2 border bg-light">
+                            <h4>@obj.StatusName</h4>
+                            <div>
+                                <section>
+                                    <div class="row">
+                                        <div class="col-md-8 col-lg-3">
+                                            <div class="row">
+                                                <aside class="col-sm-6 col-md-12 p-4">
+                                                </aside>
+                                            </div>
+                                        </div>
+                                        <main>
+                                            Название статуса: @obj.StatusName<br /><br />
+                                        </main>
+                                    </div>
+                                </section>
+                            </div>
+                            <div class="w-100 btn-group" role="group">
+                                @if (User.IsInRole("admin") || User.IsInRole("moderator"))
+                                {
+                                    <a asp-controller="Status" asp-action="Update" asp-route-Id="@obj.StatusId" class="btn btn-primary mx-1 ">Update</a>
+                                }
+                                @if (User.IsInRole("admin"))
+                                {
+                                    <a asp-controller="Status" asp-action="Delete" asp-route-Id="@obj.StatusId" class="btn btn-danger mx-1">Delete</a>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    }
+    else
+    {
+        <p>No items created yet</p>
+    }
+
+</div>
+

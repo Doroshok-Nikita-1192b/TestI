@@ -1,0 +1,58 @@
+﻿@model TestI.Models.MachineTool
+
+<form method="post" asp-action="Update">
+    <input asp-for="MachineToolsId" hidden />
+    <div class="border p-3">
+
+        <div class="form-group row">
+            <h2 class="text-black-50 pl-3">Update Machinetool</h2>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="form-group row">
+                    <div class="col-6">
+                        <label asp-for="MachineToolsName"></label>
+                        <input asp-for="MachineToolsName" class="form-control" />
+                        <span asp-validation-for="MachineToolsName" class="text-danger"></span>
+                    </div>
+                    <div class="col-6">
+                        <label asp-for="Country"></label>
+                        <input asp-for="Country" class="form-control" />
+                        <span asp-validation-for="Country" class="text-danger"></span>
+                    </div>
+                    <div class="col-6">
+                        <label asp-for="Year"></label>
+                        <input asp-for="Year" class="form-control" />
+                        <span asp-validation-for="Year" class="text-danger"></span>
+                    </div>
+                    <div class="col-6">
+                        <label asp-for="MachineToolsStamp"></label>
+                        <input asp-for="MachineToolsStamp" class="form-control" />
+                        <span asp-validation-for="MachineToolsStamp" class="text-danger"></span>
+                    </div>
+                    <div class="col-6">
+                        <label asp-for="MachineToolsTtype"></label>
+                        <input asp-for="MachineToolsTtype" class="form-control" />
+                        <span asp-validation-for="MachineToolsTtype" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-8 offset-2 row">
+                        <div class="col">
+                            <input type="submit" class="btn btn-info w-75" value="Update" />
+                        </div>
+                        <div class="col">
+                            <a asp-action="Index" class="btn btn-danger w-75">Back</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+@section Scripts{
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}

@@ -1,0 +1,60 @@
+﻿@model TestI.Models.ViewModels.ApplicationViewModel
+
+<form method="post" asp-action="Create">
+    <div class="border p-3">
+        <div class="form-group row">
+            <h2 class="text-black-50 pl-3">Add Application</h2>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="form-group row">
+                    <div class="col-4">
+                        <label asp-for="Application.Status"></label>
+                        <select asp-for="Application.StatusId" asp-items="@Model.TDDStatus" class="form-control">
+                            <option selected>Select Status</option>
+                        </select>
+                        <span asp-validation-for="Application.StatusId" class="text-danger"></span>
+                    </div>
+                    <div class="col-4">
+                        <label asp-for="Application.Repair"></label>
+                        <select asp-for="Application.RepairId" asp-items="@Model.TDDRepair" class="form-control">
+                            <option selected>--Select Repair--</option>
+                        </select>
+                        <span asp-validation-for="Application.RepairId" class="text-danger"></span>
+                    </div>
+                    <div class="col-4">
+                        <label asp-for="Application.Client"></label>
+                        <select asp-for="Application.ClientId" asp-items="@Model.TDDClient" class="form-control">
+                            <option selected>--Select Client--</option>
+                        </select>
+                        <span asp-validation-for="Application.ClientId" class="text-danger"></span>
+                    </div>
+                    <div class="col-4">
+                        <label asp-for="Application.MachineTool"></label>
+                        <select asp-for="Application.MachineToolsId" asp-items="@Model.TDDMachineTool" class="form-control">
+                            <option selected>--Select MachineTool--</option>
+                        </select>
+                        <span asp-validation-for="Application.MachineToolsId" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-8 offset-2 row">
+                        <div class="col">
+                            <input type="submit" class="btn btn-info w-75" value="Create" />
+                        </div>
+                        <div class="col">
+                            <a asp-action="Index" class="btn btn-danger w-75">Back</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+@section Scripts{
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}
+

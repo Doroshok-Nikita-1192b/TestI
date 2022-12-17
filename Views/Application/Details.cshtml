@@ -1,0 +1,37 @@
+﻿@model TestI.Models.Application
+
+@{ ViewData["Title"] = "Details"; }
+
+
+<div class="container">
+    <!-- ОСНОВНОЙ КОНТЕНТ -->
+    <section>
+        <div class="row">
+            <!-- ASIDE -->
+            <div class="col-md-5 col-lg-3">
+                <div class="row">
+                    <!-- ASIDE #1 -->
+                    <aside class="col-sm-6 col-md-12 p-4">
+                        <img src="~/images/image.jpg" class="img-thumbnail" alt="...">
+                    </aside>
+                </div>
+            </div>
+            <main class="col-7 col-lg-9 p-4">
+                <h3>Общие сведения: @Html.DisplayFor(model => model.Status) </h3>
+
+                Ремонт: @Html.DisplayFor(model => model.Repair)<br /><br />
+                Клиент: @Html.DisplayFor(model => model.Client)<br /><br />
+                Станок: @Html.DisplayFor(model => model.MachineTool)<br /><br />
+            </main>
+        </div>
+    </section>
+</div>
+<div class="mx-auto" style="width: 300px">
+    <a class="btn btn-outline-info" asp-action="Index">Вернуться</a>
+    @if (User.IsInRole("admin") || User.IsInRole("moderator"))
+    {
+        <a class="btn btn-outline-info" asp-action="Update" asp-route-id="@Model.ApplicationId">Изменить</a>}
+    @if (User.IsInRole("admin"))
+    {
+        <a class="btn btn-outline-danger" asp-action="Delete" asp-route-id="@Model.ApplicationId">Удалить</a>}
+</div>

@@ -1,0 +1,59 @@
+﻿@model TestI.Models.Repair
+
+<form method="post" asp-action="Create">
+    <div class="border p-3">
+        @*<div asp-validation-summary="ModelOnly" class="text-danger"></div>*@
+        <div class="form-group row">
+            <h2 class="text-black-50 pl-3">Add afafafaf</h2>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="form-group row">
+                    <div class="col-6">
+                        <label asp-for="RepairName"></label>
+                        <input asp-for="RepairName" class="form-control" />
+                        <span asp-validation-for="RepairName" class="text-danger"></span>
+                    </div>
+                    <div class="col-6">
+                        <label asp-for="RepairData"></label>
+                        <input asp-for="RepairData" class="form-control" />
+                        <span asp-validation-for="RepairData" class="text-danger"></span>
+                    </div>
+                    <div class="col-6">
+                        <label asp-for="RepairDuration"></label>
+                        <input asp-for="RepairDuration" class="form-control" />
+                        <span asp-validation-for="RepairDuration" class="text-danger"></span>
+                    </div>
+                    <div class="col-6">
+                        <label asp-for="HourlyCostWorker"></label>
+                        <input asp-for="HourlyCostWorker" class="form-control" />
+                        <span asp-validation-for="HourlyCostWorker" class="text-danger"></span>
+                    </div>
+                    <div class="col-6">
+                        <label asp-for="RepairCost"></label>
+                        <input asp-for="RepairCost" class="form-control" />
+                        <span asp-validation-for="RepairCost" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-8 offset-2 row">
+                        <div class="col">
+                            <input type="submit" class="btn btn-info w-75" value="create" />
+                        </div>
+                        <div class="col">
+                            <a asp-action="Index" class="btn btn-danger w-75">Back</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</form>
+
+@section Scripts{
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}
+
